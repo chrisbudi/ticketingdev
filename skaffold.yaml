@@ -1,0 +1,20 @@
+apiVersion: skaffold/v2beta26
+kind: config
+deploy:
+  kubectl:
+    manifests:
+      - infra/k8s/*
+build:
+  local:
+    push: false
+    concurrency: 0
+    useBuildkit: false
+  artifacts:
+    - image: chbudi9/auth
+      context: auth
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - dest: .
+            src: "auth/**/*.ts"
