@@ -1,10 +1,9 @@
+import { validateRequest } from './../middlewares/validate-request';
 import { BadRequestError } from './../error/bad-request-error';
-import { DatabaseConnectionError } from './../error/database-connection-error';
-import { RequestValidationError } from './../error/request-validation-error';
 import { User } from '../models/user';
 import express, { Request, Response } from "express";
-import { body, validationResult } from "express-validator";
-import { ExitStatus } from 'typescript';
+import jwt from 'jsonwebtoken';
+import { body } from "express-validator";
 
 const router = express.Router();
 
@@ -12,16 +11,8 @@ router.post('/api/users/signup', [
     body('email').isEmail().withMessage('Email must be valid'),
     body('password').trim().isLength({ min: 4, max: 20 }).withMessage('Password must be between 4 and 20 characters')
 ],
+    validateRequest,
     async (req: Request, res: Response) => {
-        console.log("testing 123");
-        const errors = validationResult(req);
-
-        if (!errors.isEmpty()) {
-            // return res.status(400).send(errors.array());
-            // throw new Error('Invalid email or password');
-            throw new RequestValidationError(errors.array());
-        }
-
         const { email, password } = req.body;
 
         console.log(email, password);
@@ -37,6 +28,16 @@ router.post('/api/users/signup', [
         });
 
         await user.save();
+
+        //generate json web token
+        const userJwt = jwt.sign({
+            id: user.id,
+            email: user.email
+        }, process.env.JWT_KEY!);
+
+        //store it on session object
+        req.session = { jwt: userJwt };
+
         res.status(201).send(user);
     });
 
