@@ -17,4 +17,12 @@ build:
       sync:
         manual:
           - dest: .
-            src: "auth/**/*.ts"
+            src: "src/**/*.ts"
+    - image: chbudi9/client
+      context: client
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - dest: .
+            src: "**/*.js"
