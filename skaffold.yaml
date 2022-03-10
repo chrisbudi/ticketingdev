@@ -17,7 +17,7 @@ build:
       sync:
         manual:
           - dest: .
-            src: "src/**/*.ts"
+            src: "auth/**/*.ts"
     - image: chbudi9/client
       context: client
       docker:
@@ -25,4 +25,4 @@ build:
       sync:
         manual:
           - dest: .
-            src: "**/*.js"
+            src: "client/**/*.js"
