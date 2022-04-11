@@ -1,5 +1,4 @@
-import { validateRequest } from './../middlewares/validate-request';
-import { BadRequestError } from './../error/bad-request-error';
+import { BadRequestError, validateRequest } from '@cwsource/common';
 import { User } from '../models/user';
 import express, { Request, Response } from "express";
 import jwt from 'jsonwebtoken';

@@ -18,6 +18,14 @@ build:
         manual:
           - dest: .
             src: "auth/**/*.ts"
+    - image: chbudi9/tickets
+      context: tickets
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - dest: .
+            src: "tickets/**/*.ts"
     - image: chbudi9/client
       context: client
       docker:

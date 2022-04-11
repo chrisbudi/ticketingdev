@@ -1,7 +1,5 @@
 import express from "express";
-import { DatabaseConnectionError } from "../error/database-connection-error";
-import { currentUser } from "../middlewares/current-user";
-import { requireAuth } from "../middlewares/require-auth";
+import { currentUser } from "@cwsource/common";
 
 const router = express.Router();
 
