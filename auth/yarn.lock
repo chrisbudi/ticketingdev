@@ -293,10 +293,10 @@
   resolved "https://registry.npmjs.org/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@cwsource/common@^1.0.3":
-  version "1.0.3"
-  resolved "https://registry.npmjs.org/@cwsource/common/-/common-1.0.3.tgz"
-  integrity sha512-euyNRjemHaRZCfaIPx2Z5W0TurpDMHnWs8X/FOcRawTbou59rb3I5ZlW69o65JSqcRWjsSwLxs8JmhGjx+xgDg==
+"@cwsource/common@1.0.5":
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/@cwsource/common/-/common-1.0.5.tgz#4eb92409364fd14a4ce29ae637b043d3d8698257"
+  integrity sha512-oRniinILrCGqbyE0Tx1lk+m6TPvWLYV2zQUd8gO30pt48oJcqjs8AjacWcwVoq2Zb0BmV5LLrvESgK8IgMeMkw==
   dependencies:
     "@types/cookie-session" "^2.0.44"
     "@types/express" "^4.17.13"

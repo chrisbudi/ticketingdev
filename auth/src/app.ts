@@ -8,10 +8,7 @@ import { currentUserRouter } from "./routes/current-user";
 import { signinRouter } from "./routes/signin";
 import { signoutRouter } from "./routes/signout";
 import { signupRouter } from "./routes/signup";
-import { errorHandler, notFoundError } from '@cwsource/common';
-
-
-
+import { errorHandler, NotFoundError } from '@cwsource/common';
 
 const app = express();
 
@@ -31,7 +28,7 @@ app.use(signupRouter);
 
 
 app.all('*', async () => {
-    throw new notFoundError();
+    throw new NotFoundError();
 });
 
 app.use(errorHandler);
